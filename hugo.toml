@@ -1,0 +1,4 @@
+baseURL = 'https://doctorshuffle.com/'
+languageCode = 'en-us'
+title = 'Doctor Shuffle'
+theme = 'doctorshuffle'

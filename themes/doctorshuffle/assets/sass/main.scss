@@ -1,0 +1,32 @@
+body {
+    background: #55F5DD;
+    background: radial-gradient(at right top, #55F5DD, #9C027A);
+    color: white;
+    min-height: 100vh;
+    font-family: 'Roboto Condensed', "Helvetica", sans-serif;
+}
+
+.booking-address {
+    border: 2px solid currentColor;
+    border-radius: 7px;
+    color: white;
+    font-size: 56px;
+    font-weight: 700;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    a {
+        text-decoration: none;
+        display: block;
+        color: inherit;
+        padding-inline: 20px;
+        padding-block: 7px;
+
+        &:hover,
+        &:focus {
+            box-shadow: 0px 0px 35px 2px #55F5DD;
+        }
+    }
+}
