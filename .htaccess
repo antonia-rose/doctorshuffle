@@ -1,3 +1,8 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} !^www\\.doctorshuffle\\.com$
-RewriteRule ^(.*)$ https://www.doctorshuffle.com/$1 [L,R=301]
+#First rewrite any request to the wrong domain to use the correct one (here www.)
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+#Now, rewrite to HTTPS:
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
