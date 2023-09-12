@@ -1,4 +1,4 @@
 baseURL = 'https://doctorshuffle.com/'
-languageCode = 'en-us'
+languageCode = 'de-DE'
 title = 'Doctor Shuffle'
 theme = 'doctorshuffle'
