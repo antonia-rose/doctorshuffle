@@ -1,22 +1,4 @@
-# universal www canonicalization via htaccess
-# require www prefix for all urls of any domain - no editing required
-# https://perishablepress.com/press/2008/04/30/universal-www-canonicalization-via-htaccess/
-
-RewriteEngine On
-RewriteBase /
-RewriteCond %{HTTP_HOST} !^www\.               [NC]
-RewriteCond %{HTTP_HOST} ^([^.]+\.[a-z]{2,6})$ [NC]
-RewriteRule ^(.*)$       http://www.%1/$1      [R=301,L]
-
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-	RewriteCond %{HTTPS} off
-	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-	RewriteCond %{HTTPS} off
-	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-	
-	RewriteCond %{HTTP_HOST} !^www\. [NC]
-	RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
-
+# Redirect to www
+RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+RewriteCond %{HTTPS}s ^on(s)|
+RewriteRule ^ http%1://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
